@@ -1,7 +1,9 @@
-from django.http import HttpResponse
+
 from django.shortcuts import render
 
 # Create your views here.
 
-def welcome(request):
-    return HttpResponse("Welcome to grocery list app")
+
+#
+def home(request):
+    return render(request, "website/fruits.html")
