@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from website.views import home
+from website.views import fruits, home
 
 
 
@@ -24,7 +24,7 @@ from website.views import home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
-    path('fruits/', home),
+    path('fruits/', fruits ),
 
 
 ]
