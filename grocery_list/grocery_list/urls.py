@@ -17,14 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 
 from website.views import fruits, home
+from fruits.views import fruits_list_view
 
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
-    path('fruits/', fruits ),
+    path('', home,),
+    path('fruits/', fruits_list_view ),
     path('home/', home),
 
 

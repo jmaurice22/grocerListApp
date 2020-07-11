@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Fruits </title>
-</head>
-<body>
-    <h1>Hello Welcome to the Fruits page!</h1>
+{% extends 'website/home.html' %}
 
-    <hr>
+{% block content %}
 
-    <p>write stuff in here</p>
+    <ul>
 
-</body>
-</html>
+    {% for f in fruit %}
+        <li>{{f.name}}</li>
+        <li>{{f.quantity}}</li>
+    {% endfor %}
+    
+    </ul>
+
+
+
+{% endblock  %}
