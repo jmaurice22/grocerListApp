@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from website.views import fruits, home
-from fruits.views import fruits_list_view
+from fruits.views import fruits_list_view, addItem
+from website.views import GroceryList
 
 
 
@@ -25,8 +25,8 @@ from fruits.views import fruits_list_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', fruits_list_view,),
-    path('fruits/', fruits_list_view ),
-    path('home/', home),
+    path('home/', fruits_list_view ),
+    path('addItem/', fruits_list_view),
 
 
 ]
