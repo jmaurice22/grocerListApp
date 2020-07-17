@@ -24,7 +24,7 @@ from fruits.views import fruits_list_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home,),
+    path('', fruits_list_view,),
     path('fruits/', fruits_list_view ),
     path('home/', home),
 
