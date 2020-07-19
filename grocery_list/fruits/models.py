@@ -12,12 +12,7 @@ class Fruits(models.Model):
         return self.name
         return self.quantity
 
-class GroceryForm(ModelForm):
-    class Meta:
-        model = Fruits
-        fields = ['name', 'quantity']
 
-form = GroceryForm()
 
   
 

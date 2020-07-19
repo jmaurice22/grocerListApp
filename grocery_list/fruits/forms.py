@@ -1,9 +1,10 @@
+from django import forms
 from django.forms import ModelForm
+
 from fruits.models import Fruits
 
-class GroceryForm(ModelForm):
+
+class ItemForm(forms.ModelForm):
     class Meta:
         model = Fruits
-        fields = ['name', 'quantity']
-
-form = GroceryForm()
+        fields = '__all__'

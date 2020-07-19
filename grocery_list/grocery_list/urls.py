@@ -16,17 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from fruits.views import fruits_list_view, addItem
-from website.views import GroceryList
-
-
-
+from fruits.views import fruits_list_view, updateItem, deleteItem
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', fruits_list_view,),
     path('home/', fruits_list_view ),
-    path('addItem/', fruits_list_view),
-
+    path('updateItem/<str:pk>/', updateItem, name="Update Item"),
+    path('deleteItem/<str:pk>/', deleteItem, name="delete"),
 
 ]
