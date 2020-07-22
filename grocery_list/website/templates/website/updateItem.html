@@ -20,10 +20,12 @@
 
 <h3>Update selected Item.</h3>
 
-<form method="post" action="/">
-    {% csrf_token%}
+<form method="Post" action="">
+    {% csrf_token %}
+
+
     {{form}}
-    <input type="submit" name="Update Item">
+    <input class="btn-md btn-success" type="submit" value="Update" name="Update Item">
 </form>
 
 </body>

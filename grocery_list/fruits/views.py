@@ -30,15 +30,15 @@ def fruits_list_view(request):
 
 def updateItem(request, pk):
 
-    item = Fruits.objects.get(id=pk)
+    item = Fruits.objects.get(id = pk)
 
     form = ItemForm(instance=item)
 
     if request.method == 'POST':
-        form = ItemForm(request.Post, instance=item)
+        form = ItemForm(request.POST, instance=item)
         if form.is_valid():
-            form.save()
-            return redirect('/')
+                form.save()
+                return redirect('/')
 
     content = {
          'form': form,

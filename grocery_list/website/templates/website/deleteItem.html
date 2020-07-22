@@ -16,15 +16,21 @@
     </div>
     <hr style="border: 10px solid blue">
 
+    <div class="container">
     <h3>Are you sure you want to delete "{{item}}"?</h3>
 
-    <a href="{% url 'delete' item.id %}">Delete</a>
+        <div class="row">
+
+    <a class="btn-lg btn-warning" href="{% url 'home' %}">Cancel</a>&nbsp;
 
     <form method="post" action="">
      {% csrf_token %}
       {{form}}
-        <input type="submit" name="confirm" value="Button">
+        <input class="btn-lg btn-danger" type="submit" name="confirm" value="Delete">
     </form>
+        </div>
+    
+    </div>
 
 
 

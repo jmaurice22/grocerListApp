@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 
-from fruits.models import Fruits
+from .models import *
 
 
 class ItemForm(forms.ModelForm):
