@@ -1,5 +1,5 @@
 from django.db import models
-from django.forms import ModelForm
+
 
 # Create your models here.
 
@@ -12,12 +12,7 @@ class Fruits(models.Model):
         return self.name
         return self.quantity
 
-class GroceryForm(ModelForm):
-    class Meta:
-        model = Fruits
-        fields = ['name', 'quantity']
 
-form = GroceryForm()
 
   
 

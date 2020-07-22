@@ -1,5 +1,7 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from .forms import ItemForm
 from .models import Fruits
 from django.http import HttpResponseRedirect
 
@@ -8,8 +10,17 @@ from django.http import HttpResponseRedirect
 def fruits_list_view(request):
     fruit = Fruits.objects.all()
 
+    form = ItemForm()
+
+    if request.method == "POST":
+        form = ItemForm(request.POST)
+        if form.is_valid():
+                form.save()
+        return redirect('/')
+
+
     content = {
-        'fruits': fruit
+        'fruits': fruit, 'form': form,
     }
     
     return render(request, "website/home.html", content)
@@ -17,14 +28,35 @@ def fruits_list_view(request):
             
             
 
-def addItem(request):
+def updateItem(request, pk):
 
-    new_item = Fruits(name = request.POST['name'])
-    new_item.save()
-    return HttpResponseRedirect('')
-    # Create a new item
-    #save
-    #redirect browser
+    item = Fruits.objects.get(id = pk)
+
+    form = ItemForm(instance=item)
+
+    if request.method == 'POST':
+        form = ItemForm(request.POST, instance=item)
+        if form.is_valid():
+                form.save()
+                return redirect('/')
+
+    content = {
+         'form': form,
+    }
+    return render(request, 'website/updateItem.html', content)
+
+
+def deleteItem(request, pk):
+    item = Fruits.objects.get(id=pk)
+
+    if request.method == 'POST':
+        item.delete()
+        return redirect('/')
+
+    content = {
+        'item': item,
+    }
+    return render(request, 'website/deleteItem.html', content)
 
 
 
