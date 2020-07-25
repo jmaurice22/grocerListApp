@@ -1,5 +1,4 @@
-{% load static %}
-<link rel=”stylesheet” href=”{% static 'website/styles.css' %}”>
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,20 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Update ITem</title>
+    <title>Update Item</title>
+    <style>
+        body {
+            background-color: lightgray;
+            margin: 50px;
+        }
+
+    
+        h4 {
+            color: red;
+            font-style: italic;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+       
+
+        #outer_container {
+            padding: 20px;
+            border: solid black 5px;
+            box-shadow: 10px 10px;   
+        }
+
+        #inner_container {
+            padding: 2px;
+        }
+    </style>
 </head>
 <body>
 
+<div class="container-lg" id="outer_container">
+   
+    <div class="container-md" id="inner_container">
+        <h4>Update your selected grocery list item here. Press the <span style="color:green;">Update</span> button to continue.</h4>
+    </div>
 
-<h3>Update selected Item.</h3>
+    <form method="Post" action="">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <a class="btn btn-primary" href="{% url 'home' %}">Cancel</a>&nbsp;<input class="btn-md btn-success" type="submit" value="Update" name="Update Item"> 
+    </form>
 
-<form method="Post" action="">
-    {% csrf_token %}
-
-
-    {{form}}
-    <input class="btn-md btn-success" type="submit" value="Update" name="Update Item">
-</form>
+</div>
 
 </body>
 </html>
